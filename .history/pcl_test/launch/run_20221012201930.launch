@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="pcl_VoxelGrid" type="pcl_VoxelGrid_node" name="pcl_VoxelGrid_node" output="screen"/>
+</launch>
