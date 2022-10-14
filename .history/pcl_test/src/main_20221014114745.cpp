@@ -53,14 +53,12 @@ cloud_show (const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
   currentCloudMsg = std::move(*cloud_msg);
    for (int i = 0; i < (int)currentCloudMsg.fields.size(); ++i)
             {
-              std::cout << i<<currentCloudMsg.fields[i].name<<std::endl;
-              /*
+              std::cout
                 if (currentCloudMsg.fields[i].name == "ring")
                 {
                     ringFlag = 1;
                     break;
                 }
-                */
             }
   //pcl::moveFromROSMsg(currentCloudMsg, *laserCloudIn);
   /*
@@ -121,7 +119,7 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("points_raw", 1, cloud_show);
+  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("livox/lidar", 1, cloud_show);
 
   // Create a ROS publisher for the output point cloud
   pub = nh.advertise<sensor_msgs::PointCloud2> ("filtered_points", 1);

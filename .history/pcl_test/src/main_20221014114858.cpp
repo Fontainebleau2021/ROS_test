@@ -121,7 +121,7 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("points_raw", 1, cloud_show);
+  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("livox/lidar", 1, cloud_show);
 
   // Create a ROS publisher for the output point cloud
   pub = nh.advertise<sensor_msgs::PointCloud2> ("filtered_points", 1);
