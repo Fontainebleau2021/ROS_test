@@ -53,7 +53,8 @@ cloud_show (const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
   currentCloudMsg = std::move(*cloud_msg);
    for (int i = 0; i < (int)currentCloudMsg.fields.size(); ++i)
             {
-              std::cout << i<<" "<<currentCloudMsg.fields[i].name<<std::endl;
+              std::cout << i<<" "<<currentCloudMsg.tag<<std::endl;
+              std::cout << i<<" "<<currentCloudMsg.line<<std::endl;
               /*
                 if (currentCloudMsg.fields[i].name == "ring")
                 {
