@@ -50,8 +50,7 @@ cloud_show (const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
   sensor_msgs::PointCloud2 output;
   currentCloudMsg = std::move(*cloud_msg);
   //pcl::moveFromROSMsg(currentCloudMsg, *laserCloudIn);
-  /*
-  
+  '''
   // Container for original & filtered data
   pcl::PCLPointCloud2* cloud = new pcl::PCLPointCloud2; 
   pcl::PCLPointCloud2ConstPtr cloudPtr(cloud);
@@ -68,7 +67,7 @@ cloud_show (const sensor_msgs::PointCloud2ConstPtr& cloud_msg)
   // Convert to ROS data type
   
   //pcl_conversions::moveFromPCL(cloud_filtered, output);
-  */
+  '''
   output = currentCloudMsg;
   // Publish the data
   pub.publish (output);
@@ -108,7 +107,7 @@ main (int argc, char** argv)
   ros::NodeHandle nh;
 
   // Create a ROS subscriber for the input point cloud
-  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("livox/lidar", 1, cloud_show);
+  ros::Subscriber sub = nh.subscribe<sensor_msgs::PointCloud2> ("points_raw", 1, cloud_show);
 
   // Create a ROS publisher for the output point cloud
   pub = nh.advertise<sensor_msgs::PointCloud2> ("filtered_points", 1);
