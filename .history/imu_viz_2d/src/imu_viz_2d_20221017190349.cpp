@@ -9,7 +9,7 @@ public:
 IMUMSG()
 {
 pub = n.advertise<visualization_msgs::Marker>("imu_viz_2d", 10);
-sub = n.subscribe("/imu", 1000, &IMUMSG::Callback_ARROW,this);
+sub = n.subscribe("/lpms/imu/data", 1000, &IMUMSG::Callback_ARROW,this);
 }
 
 void Callback_ARROW(const sensor_msgs::Imu& msg)
